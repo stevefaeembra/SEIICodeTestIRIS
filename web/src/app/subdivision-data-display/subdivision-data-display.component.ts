@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FetchdataService } from '../fetchdata.service';
 @Component({
   selector: 'app-subdivision-data-display',
   templateUrl: './subdivision-data-display.component.html',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
-  constructor() { }
+  data: {} | undefined;
+
+  constructor(private fetchService: FetchdataService) { }
+
+  fetchData(): void {
+    this.fetchService.getData().subscribe((data: any) => {
+      this.data = JSON.stringify(data,null,2); 
+      console.log('Got', this.data);
+    });
+  }
 
   ngOnInit(): void {
+    this.fetchData();
   }
 
 }
