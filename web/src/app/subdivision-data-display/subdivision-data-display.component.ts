@@ -16,6 +16,7 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   dataSource = new MatTableDataSource;
   filterTypes = ['All','Active','Future','Builtout'];
   filterValue = 'All';
+  displayColumns = ['id','name','marketName','nearMapImageDate','subdivisionStatusCode'];
 
   constructor(private fetchService: FetchdataService) {
     this.fetchData();
