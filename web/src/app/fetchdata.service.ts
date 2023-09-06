@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class FetchdataService {
 
-  url = "http://localhost:3000/v1/subdivisions";
+  url = "http://localhost:3000/v1/subdivisions/page/1";
 
   constructor(private http:HttpClient) {}
 
-  getData(): Observable<any> {
+  getData(pageNumber: number): Observable<any> {
+    const targeturl = `${this.url}/${pageNumber}`;
     return this.http.get(this.url, { headers: { Accept: 'application/json' } });
   }
 }

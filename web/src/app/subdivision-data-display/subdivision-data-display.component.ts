@@ -12,7 +12,7 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   constructor(private fetchService: FetchdataService) { }
 
   fetchData(): void {
-    this.fetchService.getData().subscribe((data: any) => {
+    this.fetchService.getData(1).subscribe((data: any) => {
       this.data = JSON.stringify(data,null,2); 
       console.log('Got', this.data);
     });
