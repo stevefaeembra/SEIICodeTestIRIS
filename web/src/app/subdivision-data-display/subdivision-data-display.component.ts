@@ -3,7 +3,7 @@ import { FetchdataService } from '../fetchdata.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSelectChange } from '@angular/material/select';
-import { MatSort, Sort} from '@angular/material/sort';
+import { MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-subdivision-data-display',
@@ -31,7 +31,6 @@ export class SubdivisionDataDisplayComponent implements OnInit {
 
   fetchData(): void {
     this.fetchService.getData(1).subscribe((data: any) => {
-      console.log('Received data', this.data);
       this.data = data.subdivisions;
       this.dataSource = new MatTableDataSource<any>(this.data);
       this.dataSource.paginator = this.paginator;
@@ -49,7 +48,6 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit');
     this.dataSource.paginator = this.paginator;
   }
 
