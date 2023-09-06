@@ -15,12 +15,16 @@
         <th mat-header-cell *matHeaderCellDef> Market Name </th>
         <td mat-cell *matCellDef="let element"> {{element.marketName}} </td>
       </ng-container>
+      <ng-container matColumnDef="nearMapImageDate">
+        <th mat-header-cell *matHeaderCellDef> Near Map Img Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.nearMapImageDate}} </td>
+      </ng-container>
       <ng-container matColumnDef="subdivisionSpecificStatus">
         <th mat-header-cell *matHeaderCellDef> Subdiv Status </th>
         <td mat-cell *matCellDef="let element"> {{element.subdivisionSpecificStatus}} </td>
       </ng-container>
-      <tr mat-header-row *matHeaderRowDef="['id','name','marketName','subdivisionSpecificStatus']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['id','name','marketName','subdivisionSpecificStatus'];"></tr>
+      <tr mat-header-row *matHeaderRowDef="['id','name','marketName','nearMapImageDate','subdivisionSpecificStatus']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id','name','marketName','nearMapImageDate','subdivisionSpecificStatus'];"></tr>
     </table>
   </div>
 </div>
