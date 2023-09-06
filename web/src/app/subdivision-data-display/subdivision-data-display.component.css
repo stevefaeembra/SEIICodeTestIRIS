@@ -2,3 +2,8 @@
 .mat-header-cell {
   padding: 0 24px;
 }
+
+table.mat-table {
+  display: table;
+  width: 100%;
+}

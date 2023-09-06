@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FetchdataService } from '../fetchdata.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 @Component({
   selector: 'app-subdivision-data-display',
   templateUrl: './subdivision-data-display.component.html',
@@ -7,16 +10,26 @@ import { FetchdataService } from '../fetchdata.service';
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
-  data: [];
+  data: any;
+  @ViewChild('paginator') paginator !: MatPaginator;
+  dataSource = new MatTableDataSource;
 
   constructor(private fetchService: FetchdataService) {
-    this.data = [];
+    this.fetchData();
    }
 
   fetchData(): void {
     this.fetchService.getData(1).subscribe((data: any) => {
-      this.data = data;
+      console.log('Received data', this.data);
+      this.data = data.subdivisions;
+      this.dataSource = new MatTableDataSource<any>(this.data);
+      this.dataSource.paginator = this.paginator;
     });
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
