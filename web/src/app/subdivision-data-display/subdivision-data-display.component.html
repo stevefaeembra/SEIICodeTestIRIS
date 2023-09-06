@@ -1,7 +1,15 @@
 <div>
-  <h1>Data</h1>
-  <p *ngIf="!data">Loading...</p>
-  <div>
+  <h1 *ngIf="data">IRIS Data</h1>
+  <h1 *ngIf="!data">Loading, please wait...</h1>
+  <div *ngIf="data">
+    <mat-form-field>
+      <mat-label>Filter by Type</mat-label>
+      <mat-select [(ngModel)]="filterValue">
+        <mat-option *ngFor="let type of filterTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>

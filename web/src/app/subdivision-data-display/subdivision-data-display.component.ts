@@ -13,6 +13,8 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   data: any;
   @ViewChild('paginator') paginator !: MatPaginator;
   dataSource = new MatTableDataSource;
+  filterTypes = ['ACTIVE','FUTURE','BUILT_OUT'];
+  filterValue = 'ACTIVE';
 
   constructor(private fetchService: FetchdataService) {
     this.fetchData();
