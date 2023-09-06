@@ -16,7 +16,7 @@ export class SubdivisionDataDisplayComponent implements OnInit {
   data: any;
   @ViewChild('paginator') paginator !: MatPaginator;
   dataSource = new MatTableDataSource;
-  displayColumns = ['id','name','marketName','nearMapImageDate','subdivisionStatusCode'];
+  displayColumns = ['id','name','fieldSurveyTerritoryName','nearMapImageDate','subdivisionStatusCode'];
 
   // filtering 
   filterTypes = ['All','Active','Future','Builtout'];
