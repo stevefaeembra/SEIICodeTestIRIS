@@ -7,14 +7,15 @@ import { FetchdataService } from '../fetchdata.service';
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
-  data: {} | undefined;
+  data: [];
 
-  constructor(private fetchService: FetchdataService) { }
+  constructor(private fetchService: FetchdataService) {
+    this.data = [];
+   }
 
   fetchData(): void {
     this.fetchService.getData(1).subscribe((data: any) => {
-      this.data = JSON.stringify(data,null,2); 
-      console.log('Got', this.data);
+      this.data = data;
     });
   }
 

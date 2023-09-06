@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 import { SubdivisionDataDisplayComponent } from './subdivision-data-display/subdivision-data-display.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

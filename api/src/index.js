@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const subdivisions = require('./subdivision.json')
-const pagesize = 1;
+const pagesize = 10;
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
