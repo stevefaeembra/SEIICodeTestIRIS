@@ -3,6 +3,7 @@ import { FetchdataService } from '../fetchdata.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSelectChange } from '@angular/material/select';
+import { MatSort, Sort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-subdivision-data-display',
@@ -11,12 +12,18 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class SubdivisionDataDisplayComponent implements OnInit {
 
+  // data
   data: any;
   @ViewChild('paginator') paginator !: MatPaginator;
   dataSource = new MatTableDataSource;
+  displayColumns = ['id','name','marketName','nearMapImageDate','subdivisionStatusCode'];
+
+  // filtering 
   filterTypes = ['All','Active','Future','Builtout'];
   filterValue = 'All';
-  displayColumns = ['id','name','marketName','nearMapImageDate','subdivisionStatusCode'];
+  
+  // sorting
+  @ViewChild('templateSort') dateSorter = new MatSort();
 
   constructor(private fetchService: FetchdataService) {
     this.fetchData();
@@ -28,6 +35,7 @@ export class SubdivisionDataDisplayComponent implements OnInit {
       this.data = data.subdivisions;
       this.dataSource = new MatTableDataSource<any>(this.data);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.dateSorter;
     });
   }
 

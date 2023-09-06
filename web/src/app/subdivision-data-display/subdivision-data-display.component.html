@@ -10,7 +10,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" matSort #templateSort="matSort">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
@@ -24,7 +24,7 @@
         <td mat-cell *matCellDef="let element"> {{element.marketName}} </td>
       </ng-container>
       <ng-container matColumnDef="nearMapImageDate">
-        <th mat-header-cell *matHeaderCellDef> Near Map Img Date </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Near Map Img Date </th>
         <td mat-cell *matCellDef="let element"> {{element.nearMapImageDate}} </td>
       </ng-container>
       <ng-container matColumnDef="subdivisionStatusCode">
